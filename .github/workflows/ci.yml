@@ -13,8 +13,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Checkout HTML files
-        run: |
-          test -f index.html
-          test -f about.html
-          echo "HTML files exist."
+      - name: Validate HTML
+        run: npx --yes htmlhint "*.html"
