@@ -1,0 +1,20 @@
+name: Static Site CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Checkout HTML files
+        run: |
+          test -f index.html
+          test -f about.html
+          echo "HTML files exist."
