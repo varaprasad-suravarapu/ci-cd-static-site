@@ -13,6 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Check FTP credentials
+        run: |
+          if [ -z "$FTP_USER" ]; then
+            echo "FTP_USERNAME is EMPTY"
+          else
+            echo "FTP_USERNAME is available"
+          fi
+        env:
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+
       - name: Deploy to GoDaddy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
