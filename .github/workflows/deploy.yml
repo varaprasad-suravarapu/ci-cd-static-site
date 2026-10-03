@@ -15,13 +15,13 @@ jobs:
 
       - name: Check FTP credentials
         run: |
-          if [ -z "$FTP_USER" ]; then
-            echo "FTP_USERNAME is EMPTY"
+          if [ -z "$TEST_VALUE" ]; then
+             echo "TEST_SECRET is EMPTY"
           else
-            echo "FTP_USERNAME is available"
+            echo "TEST_SECRET is available"
           fi
         env:
-          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          TEST_VALUE: ${{ secrets.TEST_SECRET }}
 
       - name: Deploy to GoDaddy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
